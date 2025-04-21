@@ -1,33 +1,31 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: mysql-pv-volume
-  labels:
-    type: mysql-pv
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 2Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data/mysql"
-
-#This is to use static provisioning with manual created EBS
 #apiVersion: v1
 #kind: PersistentVolume
 #metadata:
-#  name: test-ebs-pv
+#  name: mysql-pv-volume
+#  labels:
+#    type: mysql-pv
 #spec:
+#  storageClassName: manual
 #  capacity:
-#    storage: 10Gi
+#    storage: 2Gi
 #  accessModes:
 #    - ReadWriteOnce
-#  persistentVolumeReclaimPolicy: Retain
-#  storageClassName: manual-ebs-storage
-#  # Use the EBS volume ID here
-#  awsElasticBlockStore:
-#    volumeID: vol-0996ec6c301de4917
-#    fsType: ext4
-~
-~
+#  hostPath:
+#    path: "/mnt/data/mysql"
+
+#This is to use static provisioning with manual created EBS
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-ebs
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  # Use the EBS volume ID here
+  awsElasticBlockStore:
+    volumeID: vol-0996ec6c301de4917
+    fsType: ext4
