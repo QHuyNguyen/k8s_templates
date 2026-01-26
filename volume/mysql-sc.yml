@@ -10,6 +10,3 @@ parameters:
   type: gp3
   iops: "500"
   throughput: "250"
-  tagSpecification_1: "key1=value1"
-  tagSpecification_2: "key2=value2"
-
