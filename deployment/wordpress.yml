@@ -33,4 +33,4 @@ spec:
       volumes:
       - name: wordpress-pv
         persistentVolumeClaim:
-          claimName: wordpress-pv-restore
+          claimName: wordpress-pv-claim
