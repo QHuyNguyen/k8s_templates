@@ -14,28 +14,28 @@
 #    path: "/mnt/data/mysql"
 
 #This is to use static provisioning with manual created EBS
-#apiVersion: v1
-#kind: PersistentVolume
-#metadata:
-#  name: mysql-ebs-restore
-#spec:
-#  capacity:
-#    storage: 10Gi
-#  volumeMode: Filesystem
-#  accessModes:
-#    - ReadWriteOnce
-#  persistentVolumeReclaimPolicy: Retain
-#  storageClassName: mysql-ebs
-#  # Use the EBS volume ID here
-#  csi:
-#    driver: ebs.csi.aws.com
-#    volumeHandle: vol-06e04739b7fade925
-#    fsType: xfs
-#  nodeAffinity:
-#    required:
-#      nodeSelectorTerms:
-#      - matchExpressions:
-#        - key: topology.ebs.csi.aws.com/zone
-#          operator: In
-#          values:
-#          - ap-southeast-2a
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-ebs-restore
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  # Use the EBS volume ID here
+  csi:
+    driver: ebs.csi.aws.com
+    volumeHandle: vol-080504488a9fdd529
+    fsType: xfs
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.ebs.csi.aws.com/zone
+          operator: In
+          values:
+          - ap-southeast-2a

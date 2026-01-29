@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blog-snapshot
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/QHuyNguyen/k8s_templates.git
+    targetRevision: HEAD
+    path: snapshot
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default

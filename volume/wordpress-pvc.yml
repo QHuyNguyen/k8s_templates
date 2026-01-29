@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: wordpress-pv-claim
 spec:
-  #storageClassName: manual #for normal pv
-  storageClassName: wordpress-ebs #For storage class
+  storageClassName: manual #for normal pv
+  #storageClassName: wordpress-ebs #For storage class
   accessModes:
     - ReadWriteOnce
   resources:
