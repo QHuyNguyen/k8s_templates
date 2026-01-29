@@ -15,28 +15,28 @@
 #    path: /home/ubuntu/project/wp-data
 
 #This is to use static provisioning with manual created EBS
-#apiVersion: v1
-#kind: PersistentVolume
-#metadata:
-#  name: wordpress-ebs-restore
-#spec:
-#  capacity:
-#    storage: 10Gi
-#  volumeMode: Filesystem
-#  accessModes:
-#    - ReadWriteOnce
-#  persistentVolumeReclaimPolicy: Retain
-#  storageClassName: wordpress-ebs
-#  # Use the EBS volume ID here
-#  csi:
-#    driver: ebs.csi.aws.com
-#    volumeHandle: vol-05d4ae25343555c59
-#    fsType: xfs
-#  nodeAffinity:
-#    required:
-#      nodeSelectorTerms:
-#      - matchExpressions:
-#        - key: topology.ebs.csi.aws.com/zone
-#          operator: In
-#          values:
-#          - ap-southeast-2a
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wordpress-ebs-restore
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  # Use the EBS volume ID here
+  csi:
+    driver: ebs.csi.aws.com
+    volumeHandle: vol-022cda9387e731eaf
+    fsType: xfs
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.ebs.csi.aws.com/zone
+          operator: In
+          values:
+          - ap-southeast-2a
