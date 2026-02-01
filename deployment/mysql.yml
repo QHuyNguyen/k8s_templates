@@ -27,6 +27,10 @@ spec:
         volumeMounts:
         - name: mysql-pv
           mountPath: /var/lib/mysql
+        securityContext:
+          runAsUser: 999
+          runAsGroup: 999
+          fsGroup: 999
       volumes:
       - name: mysql-pv
         persistentVolumeClaim:
