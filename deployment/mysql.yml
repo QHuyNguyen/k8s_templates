@@ -31,3 +31,7 @@ spec:
           runAsUser: 999
           runAsGroup: 999
           fsGroup: 999
+      volumes:
+      - name: mysql-pv
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
