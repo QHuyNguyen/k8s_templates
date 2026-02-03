@@ -29,7 +29,7 @@ spec:
   # Use the EBS volume ID here
   csi:
     driver: ebs.csi.aws.com
-    volumeHandle: vol-0918c7f5ffe1b63e7
+    volumeHandle: vol-052c8f73f9139a668
     fsType: xfs
   nodeAffinity:
     required:
