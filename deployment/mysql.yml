@@ -24,6 +24,8 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: password
+        - name: MYSQL_INITIALIZE_INSECURE
+          value: "false"
         volumeMounts:
         - name: mysql-pv
           mountPath: /var/lib/mysql
