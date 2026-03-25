@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wordpress-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - "13.238.44.0.nip.io"
+    secretName: ingress-cert
+  rules:
+  - host: "13.238.44.0.nip.io"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wordpress-service-private
+            port:
+              number: 80
