@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: github-runner
+  name: github-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-runner
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: github-runner
+    spec:
+      containers:
+      - image: arthur210/github-runner:1.0.0
+        name: github-runner
+        env:
+        - name: GH_PAT
+          valueFrom:
+            secretKeyRef:
+              name: pat-runner-secret
+              key: GH_PAT
