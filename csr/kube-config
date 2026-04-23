@@ -1,0 +1,27 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://10.0.0.11:6443
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: kube-admin
+  name: dev-context
+- context:
+    cluster: kubernetes
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: dev-context
+kind: Config
+preferences: {}
+users:
+- name: kube-admin #This name must match -subj “/CN=kube-admin/”
+  user:
+    client-certificate-data: DATA+OMITTED
+    client-key-data: DATA+OMITTED
+- name: kubernetes-admin
+  user:
+    client-certificate-data: DATA+OMITTED
+    client-key-data: DATA+OMITTED

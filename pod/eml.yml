@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: eml
+  name: eml
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+  - image: busybox
+    name: eml
+    resources: {}
+    command: ["/bin/sh", "-c"]
+    args: ["echo 'hello eml' ; sleep 3600"]
+    volumeMounts:
+    - mountPath: /foo
+      name: example-volume
+    securityContext:
+      allowPrivilegeEscalation: false
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: example-volume
+    hostPath:
+      path: /home/ubuntu/ # directory location on host
+      type: Directory # this field is optional
+status: {}
