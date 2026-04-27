@@ -5,5 +5,5 @@ metadata:
   name: huey-read-write
 rules:
 - apiGroups: [""]
-  resources: ["pod", "nodes"]
+  resources: ["pods", "nodes"]
   verbs: ["get", "watch", "list"]
